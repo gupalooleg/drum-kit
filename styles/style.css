@@ -28,7 +28,7 @@ body {
   color: white;
   background: rgba(0, 0, 0, 0.4);
   text-shadow: 0 0 0.5rem black;
-  transition: all 2.07s ease;
+  transition: all 0.07s ease;
 }
 
 kbd {
