@@ -1,12 +1,24 @@
 const keys = document.querySelectorAll('.key');
-keys.forEach((key) => key.addEventListener('transitionend', removeTransition));
+keys.forEach((key) => {
+  key.addEventListener('transitionend', removeTransition);
+  key.addEventListener('mousedown', playSound);
+});
 document.addEventListener('keydown', playSound);
 
 function playSound(e) {
-  const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+  if (e.type === 'mousedown' && e.which !== 1) return;
+
+  const keyCode = e.type === 'mousedown' ? e.currentTarget.dataset.key : e.keyCode;
+  const key = document.querySelector(`div[data-key="${keyCode}"]`);
   if (!key) return;
 
   key.classList.add('playing');
+
+  const audio = document.querySelector(`audio[data-key="${keyCode}"]`);
+  if (audio) {
+    audio.currentTime = 0;
+    audio.play();
+  }
 }
 
 function removeTransition(e) {
