@@ -28,6 +28,7 @@ body {
   color: white;
   background: rgba(0, 0, 0, 0.4);
   text-shadow: 0 0 0.5rem black;
+  transition: all 2.07s ease;
 }
 
 kbd {
@@ -39,4 +40,10 @@ kbd {
   font-size: 1.2rem;
   letter-spacing: 0.1rem;
   color: #ffc600;
+}
+
+.playing {
+  transform: scale(1.1);
+  border-color: #ffc600;
+  box-shadow: 0 0 1rem #ffc600;
 }
