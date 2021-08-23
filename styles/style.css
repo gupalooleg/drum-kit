@@ -1,3 +1,11 @@
+:root {
+  --background: url('/images/background.jpg') bottom center;
+  --main-element-color: rgb(0, 0, 0);
+  --key-background-color: rgba(0, 0, 0, 0.4);
+  --mode-background-image: url('/images/sun.svg');
+  --main-color: rgb(255, 255, 255);
+}
+
 html {
   font-family: sans-serif;
   font-size: 10px;
@@ -6,8 +14,16 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background: url('/images/background.jpg') bottom center;
+  background: var(--background);
   background-size: cover;
+}
+
+body.light {
+  --background: rgb(250, 250, 250);
+  --main-element-color: rgb(230, 230, 230);
+  --key-background-color: rgba(230, 230, 230, 0.4);
+  --mode-background-image: url('/images/moon.svg');
+  --main-color: rgb(0, 0, 0);
 }
 
 .keys {
@@ -18,16 +34,16 @@ body {
 }
 
 .key {
-  border: 0.4rem solid black;
+  border: 0.4rem solid var(--main-element-color);
   border-radius: 0.5rem;
   margin: 1rem;
   font-size: 1.5rem;
   padding: 1rem 0.5rem;
   width: 10rem;
   text-align: center;
-  color: white;
-  background: rgba(0, 0, 0, 0.4);
-  text-shadow: 0 0 0.5rem black;
+  color: var(--main-color);
+  background: var(--key-background-color);
+  text-shadow: 0 0 0.5rem var(--main-element-color);
   transition: all 0.07s ease;
 }
 
@@ -46,4 +62,13 @@ kbd {
   transform: scale(1.1);
   border-color: #ffc600;
   box-shadow: 0 0 1rem #ffc600;
+}
+
+.mode {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background-image: var(--mode-background-image);
 }
